@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: educore-ai-backend
+Version: 0.1.0
+Summary: Backend API for the EduCore AI platform
+Requires-Python: >=3.12
+Requires-Dist: fastapi
+Requires-Dist: uvicorn[standard]
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: httpx; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+Requires-Dist: mypy; extra == "dev"
