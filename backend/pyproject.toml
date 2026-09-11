@@ -7,6 +7,7 @@ dependencies = [
     "fastapi",
     "uvicorn[standard]",
     "pydantic-settings",
+    "pwdlib[argon2]",
 ]
 
 [project.optional-dependencies]
