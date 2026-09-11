@@ -12,7 +12,8 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
     "pytest",
-    "httpx",
+    "httpx2",
+    "anyio[trio]",
     "ruff",
     "mypy",
 ]
@@ -24,9 +25,21 @@ target-version = "py312"
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP"]
 
+[tool.ruff.lint.per-file-ignores]
+# Alembic migration files are auto-generated — long lines are expected and
+# should not be manually wrapped as it makes diffs harder to read.
+"alembic/versions/*.py" = ["E501"]
+
 [tool.ruff.format]
 quote-style = "double"
 
 [tool.mypy]
 python_version = "3.12"
 strict = true
+explicit_package_bases = true
+
+[tool.pytest.ini_options]
+filterwarnings = [
+    "ignore::DeprecationWarning:anyio",
+    "ignore::DeprecationWarning:starlette",
+]
