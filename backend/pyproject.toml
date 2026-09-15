@@ -8,6 +8,8 @@ dependencies = [
     "uvicorn[standard]",
     "pydantic-settings",
     "pwdlib[argon2]",
+    "pydantic[email]",
+    "python-dotenv",
 ]
 
 [project.optional-dependencies]
